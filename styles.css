@@ -123,30 +123,68 @@ nav .right a span {
 }
 
 .skills-section .cells {
-    display: flex;
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-columns: 200px 200px 200px 200px 200px;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .skills-section .cells .cell {
-    display: flex;
+    grid-row: span 2;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
 
-    width: 200px;
+    width: 180px;
     padding: 5px 20px;
     margin: 10px;
     border: 1.5px solid var(--background-color);
-    border-radius: 5px;
+    border-radius: 30px;
     background-color: white;
     color: black;
 }
 
 .skills-section .cells .cell img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     border-radius: 2px;
+}
+
+.skills-section .cells .cell span {
+    padding: 0 20px;
+}
+.skills-section .cells .subcell {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    
+    width: 100px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 1.5px solid var(--background-color);
+    border-radius: 50px;
+    background-color: white;
+    color: black;
+}
+
+.skills-section .cells .subcell img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+.skills-section .cells .subcell span {
+    padding: 0 5px;
+    font-size: 12px;
+}
+
+.skills-section .cells .notext img{
+    width: 60px;
+    height: 60px;
 }
 /* Scaling for smaller windows*/
 
