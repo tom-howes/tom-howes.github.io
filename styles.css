@@ -255,8 +255,13 @@ nav .right a span {
         flex-direction: column-reverse;
     }
 
-    .hero-section .headshot img {
+    .profile-section .headshot img {
         width: 300px;
+    }
+
+    /* Section 4 : Contact */
+    .contact-section .group {
+        flex-direction: column;
     }
 }
 
@@ -297,5 +302,10 @@ nav .right a span {
    .skills-section .cells .cell span {
     font-size: 16px;
    }
-   
+
+   /* Section 4 : Contact */
+
+   .contact-section {
+    padding: 0 20px;
+   }
 }
