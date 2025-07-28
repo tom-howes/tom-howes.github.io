@@ -3,45 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tom Howes - Software Engineer Portfolio">
 
-    <!-- Red Hat Font from Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <!-- CDN to load icon library -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Links to css styles file -->
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
     <title>Portfolio</title>
 </head>
 <body>
     <!-- NAVBAR -->
-     <nav>
+    <nav class="sticky-nav">
         <div class="left">
-            <a href="/">Tom Howes</a>
+            <a href="/" class="logo">Tom Howes</a>
         </div>
 
-        <!--  Links for Github, LinkedIn, Email -->
         <div class="right">
-            <a href="https://github.com/tom-howes" target="_blank" rel="noopenernoreferrer">
-                <i class="fa-brands fa-github" style="color: #ffffff;"></i>
+            <a href="https://github.com/tom-howes" target="_blank" rel="noopener noreferrer" class="nav-link">
+                <i class="fab fa-github"></i>
                 <span>GitHub</span>
             </a>
 
-             <a href="https://www.linkedin.com/in/tom-howes-1b1322164/" target="_blank" rel="noopenernoreferrer">
-                <i class="fa-brands fa-linkedin" style="color: #ffffff;"></i>
+            <a href="https://www.linkedin.com/in/tom-howes-1b1322164/" target="_blank" rel="noopener noreferrer" class="nav-link">
+                <i class="fab fa-linkedin-in"></i>
                 <span>LinkedIn</span>
             </a>
 
-            <a href="mailto:thomas.howes01@gmail.com" target="_blank" rel="noopenernoreferrer">
-                <i class="fa-solid fa-square-envelope"></i>
+            <a href="mailto:thomas.howes01@gmail.com" target="_blank" rel="noopener noreferrer" class="nav-link">
+                <i class="fas fa-envelope"></i>
                 <span>Email</span>
             </a>
 
+            <a href="#contact" class="nav-cta">
+                <span>Let's Talk</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
-     </nav>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
 
      <!-- Section 1: Personal Profile -->
       <section class="profile-section">
