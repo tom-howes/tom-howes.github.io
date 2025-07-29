@@ -8,6 +8,14 @@
     --primary-color: #459bf3;
     --primary-dark: #2d8bef;
     --primary-light: #5ea9f5;
+    --accent-color: #ff7e33;
+    --card-bg: #ffffff;
+    --card-text: #333333;
+    --success-color: #4caf50;
+    
+    --border-radius: 8px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
 }
 
 /* Base Styles */
@@ -309,86 +317,123 @@ img {
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0); }
 }
-/* Section 2 : Skills */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Skills Section */
 .skills-section {
-    padding: 0 50px;
-    margin-bottom: 100px;
+    padding: 100px 50px;
+    background-color: var(--background-light);
 }
 
-.skills-section h2 {
-    text-align: center;
-    font-size: 35px;
-}
-
-.skills-section .text {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.skills-section .cells {
+.skills-grid {
     display: grid;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px;
-    grid-template-columns: 200px 200px 200px 200px 200px;
-    justify-content: center;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-.skills-section .cells .cell {
-    grid-row: span 2;
-    display: inline-flex;
+.skill-category {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+}
+
+.category-title {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.category-title i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.skills-list {
+    display: grid;
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+}
+
+.skill-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 180px;
-    padding: 5px 20px;
-    margin: 10px;
-    border: 1.5px solid var(--background-color);
-    border-radius: 30px;
-    background-color: white;
-    color: black;
+    margin-right: 15px;
 }
 
-.skills-section .cells .cell img {
-    width: 60px;
-    height: 60px;
+.skill-icon img {
+    width: 60%;
+    height: 60%;
     object-fit: contain;
-    border-radius: 2px;
 }
 
-.skills-section .cells .cell span {
-    padding: 0 20px;
+.skill-name {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text-light);
 }
-.skills-section .cells .subcell {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    
+
+.skill-level {
     width: 100px;
-    padding: 10px 20px;
-    margin: 10px;
-    border: 1.5px solid var(--background-color);
-    border-radius: 50px;
-    background-color: white;
-    color: black;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
 }
 
-.skills-section .cells .subcell img {
-    width: 25px;
-    height: 25px;
-    object-fit: contain;
-    border-radius: 2px;
+.level-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
 }
 
-.skills-section .cells .subcell span {
-    padding: 0 5px;
-    font-size: 12px;
-}
-
-.skills-section .cells .notext img{
-    width: 60px;
-    height: 60px;
-}
 /* Section 3 : Projects */
       
 /* Projects grid */
