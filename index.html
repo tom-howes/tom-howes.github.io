@@ -84,17 +84,6 @@
             <div class="image-wrapper">
                 <img src="images/headshot.webp" alt="Tom Howes" class="profile-photo">
                 <div class="image-border"></div>
-                <div class="tech-icons">
-                    <div class="icon python">
-                        <img src="images/icons8-python-96.png" alt="Python">
-                    </div>
-                    <div class="icon java">
-                        <img src="images/icons8-java-96.png" alt="Java">
-                    </div>
-                    <div class="icon linux">
-                        <img src="images/linux-cropped.png" alt="Linux">
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -226,7 +215,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-icon">
-                            <img src="images/icons8-git-96.png" alt="Git">
+                            <img src="images/github-mark.svg" alt="Git">
                         </div>
                         <span class="skill-name">Git</span>
                         <div class="skill-level">
@@ -426,5 +415,32 @@
             <p>&copy; <span id="year"></span> Tom Howes. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>
