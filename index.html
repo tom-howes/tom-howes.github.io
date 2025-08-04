@@ -371,20 +371,19 @@
                     </div>
                 </div>
             </div>
-            <form action="form-process.php" method="POST" class="contact-form" id="contactForm">
-            <!-- <form class="contact-form" id="contactForm"> -->
+            <form action="https://formcarry.com/s/BpLfAipwT8T" method="POST" class="contact-form" id="contactForm" enctype="multipart/form-data">
                 <div class="form-group">
-                    <input type="text" id="name" required>
+                    <input type="text" name="name" required>
                     <label for="name">Your Name</label>
                 </div>
                 
                 <div class="form-group">
-                    <input type="email" id="email" required>
+                    <input type="email" name="email" required>
                     <label for="email">Your Email</label>
                 </div>
                 
                 <div class="form-group">
-                    <textarea id="message" rows="5" required></textarea>
+                    <textarea name="message" rows="5" required></textarea>
                     <label for="message">Your Message</label>
                 </div>
                 
@@ -395,5 +394,37 @@
             </form>
         </div>
     </section>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a href="/">Tom Howes</a>
+                <p>Software Engineer</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://github.com/tom-howes" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/tom-howes-1b1322164/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:thomas.howes01@gmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Tom Howes. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
