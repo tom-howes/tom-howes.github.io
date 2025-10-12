@@ -435,6 +435,7 @@ img {
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .project-card:hover {
