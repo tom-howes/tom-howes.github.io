@@ -1,0 +1,246 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0d1117"/>
+
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#161b22" stroke-width="1"/>
+    </pattern>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#grid)"/>
+
+  <!-- Background glow blobs -->
+  <ellipse cx="200" cy="225" rx="180" ry="140" fill="rgba(59,130,246,0.06)"/>
+  <ellipse cx="600" cy="225" rx="180" ry="140" fill="rgba(139,92,246,0.05)"/>
+
+  <!-- ── TOP LABEL ── -->
+  <text x="400" y="38" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="3" fill="#3b82f6" opacity="0.8">DISTRIBUTED KANBAN BOARD</text>
+
+  <!-- ══════════════════════════════════════
+       NODE A — Primary
+  ══════════════════════════════════════ -->
+  <!-- Board panel -->
+  <rect x="30" y="55" width="220" height="310" rx="10" fill="#161b22" stroke="#21262d" stroke-width="1.5"/>
+  <!-- Header -->
+  <rect x="30" y="55" width="220" height="36" rx="10" fill="#1a2233"/>
+  <rect x="30" y="79" width="220" height="12" fill="#1a2233"/>
+  <circle cx="52" cy="73" r="5" fill="#3b82f6"/>
+  <text x="64" y="77" font-size="11" font-weight="700" fill="#e6edf3">Node A</text>
+  <rect x="185" y="63" width="52" height="18" rx="9" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.5)" stroke-width="1"/>
+  <text x="211" y="75" text-anchor="middle" font-size="9" font-weight="700" fill="#60a5fa">PRIMARY</text>
+
+  <!-- Columns -->
+  <!-- TODO col -->
+  <rect x="42" y="100" width="58" height="16" rx="4" fill="#21262d"/>
+  <text x="71" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#8b949e">TODO</text>
+  <!-- Cards -->
+  <rect x="42" y="122" width="58" height="36" rx="5" fill="#1e2d40" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <rect x="48" y="128" width="30" height="4" rx="2" fill="#3b82f6" opacity="0.7"/>
+  <rect x="48" y="136" width="44" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="48" y="142" width="36" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="42" y="164" width="58" height="36" rx="5" fill="#1e2d40" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <rect x="48" y="170" width="24" height="4" rx="2" fill="#60a5fa" opacity="0.7"/>
+  <rect x="48" y="178" width="44" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="48" y="184" width="28" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="42" y="206" width="58" height="36" rx="5" fill="#1e2d40" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <rect x="48" y="212" width="36" height="4" rx="2" fill="#3b82f6" opacity="0.5"/>
+  <rect x="48" y="220" width="44" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="48" y="226" width="20" height="3" rx="1.5" fill="#30363d"/>
+
+  <!-- IN PROGRESS col -->
+  <rect x="108" y="100" width="66" height="16" rx="4" fill="#21262d"/>
+  <text x="141" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#8b949e">IN PROGRESS</text>
+  <rect x="108" y="122" width="66" height="36" rx="5" fill="#1e2d3a" stroke="rgba(234,179,8,0.4)" stroke-width="1"/>
+  <rect x="114" y="128" width="38" height="4" rx="2" fill="#eab308" opacity="0.7"/>
+  <rect x="114" y="136" width="52" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="114" y="142" width="40" height="3" rx="1.5" fill="#30363d"/>
+  <!-- Animated progress bar -->
+  <rect x="114" y="150" width="52" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="114" y="150" width="34" height="3" rx="1.5" fill="#eab308" opacity="0.8"/>
+  <rect x="108" y="164" width="66" height="36" rx="5" fill="#1e2d3a" stroke="rgba(234,179,8,0.3)" stroke-width="1"/>
+  <rect x="114" y="170" width="28" height="4" rx="2" fill="#f59e0b" opacity="0.7"/>
+  <rect x="114" y="178" width="52" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="114" y="184" width="44" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="114" y="190" width="20" height="3" rx="1.5" fill="#21262d"/>
+  <rect x="114" y="190" width="14" height="3" rx="1.5" fill="#f59e0b" opacity="0.6"/>
+
+  <!-- DONE col -->
+  <rect x="182" y="100" width="56" height="16" rx="4" fill="#21262d"/>
+  <text x="210" y="112" text-anchor="middle" font-size="9" font-weight="600" fill="#8b949e">DONE</text>
+  <rect x="182" y="122" width="56" height="36" rx="5" fill="#1a2e22" stroke="rgba(16,185,129,0.4)" stroke-width="1"/>
+  <rect x="188" y="128" width="32" height="4" rx="2" fill="#10b981" opacity="0.8"/>
+  <rect x="188" y="136" width="44" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="188" y="142" width="36" height="3" rx="1.5" fill="#30363d"/>
+  <!-- Checkmark -->
+  <circle cx="227" cy="148" r="6" fill="rgba(16,185,129,0.2)"/>
+  <polyline points="224,148 226,150 230,145" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="182" y="164" width="56" height="36" rx="5" fill="#1a2e22" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+  <rect x="188" y="170" width="40" height="4" rx="2" fill="#10b981" opacity="0.6"/>
+  <rect x="188" y="178" width="44" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="188" y="184" width="28" height="3" rx="1.5" fill="#30363d"/>
+  <circle cx="227" cy="190" r="6" fill="rgba(16,185,129,0.2)"/>
+  <polyline points="224,190 226,192 230,187" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Status bar -->
+  <rect x="42" y="340" width="196" height="18" rx="5" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <circle cx="54" cy="349" r="4" fill="#10b981"/>
+  <text x="63" y="353" font-size="9" fill="#8b949e">Active  ·  12 tasks  ·  3 users online</text>
+
+  <!-- ══════════════════════════════════════
+       SYNC / REPLICATION ARROWS (center)
+  ══════════════════════════════════════ -->
+  <!-- Arrow A → B -->
+  <line x1="258" y1="200" x2="314" y2="182" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <polygon points="314,182 306,178 308,186" fill="#3b82f6" opacity="0.7"/>
+  <!-- Arrow B → A -->
+  <line x1="314" y1="200" x2="258" y2="218" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.5"/>
+  <polygon points="258,218 265,222 264,214" fill="#3b82f6" opacity="0.5"/>
+
+  <!-- Arrow A → C -->
+  <line x1="258" y1="230" x2="314" y2="248" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <polygon points="314,248 307,242 306,250" fill="#3b82f6" opacity="0.7"/>
+
+  <!-- Arrow B → C -->
+  <line x1="486" y1="182" x2="542" y2="200" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.7"/>
+  <polygon points="542,200 534,196 536,204" fill="#3b82f6" opacity="0.7"/>
+
+  <!-- Center labels -->
+  <rect x="296" y="184" width="108" height="46" rx="8" fill="#161b22" stroke="#21262d" stroke-width="1"/>
+  <text x="350" y="200" text-anchor="middle" font-size="9" font-weight="700" fill="#60a5fa">PRIMARY-BACKUP</text>
+  <text x="350" y="213" text-anchor="middle" font-size="9" fill="#8b949e">REPLICATION</text>
+  <text x="350" y="224" text-anchor="middle" font-size="8" fill="#30363d">Socket.io · Node.js</text>
+
+  <!-- ══════════════════════════════════════
+       NODE B — Backup 1
+  ══════════════════════════════════════ -->
+  <rect x="320" y="55" width="160" height="118" rx="10" fill="#161b22" stroke="#21262d" stroke-width="1.5"/>
+  <rect x="320" y="55" width="160" height="36" rx="10" fill="#1a2233"/>
+  <rect x="320" y="79" width="160" height="12" fill="#1a2233"/>
+  <circle cx="338" cy="73" r="5" fill="#8b949e"/>
+  <text x="350" y="77" font-size="11" font-weight="700" fill="#e6edf3">Node B</text>
+  <rect x="437" y="63" width="30" height="18" rx="9" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="452" y="75" text-anchor="middle" font-size="8" font-weight="700" fill="#a78bfa">BAK</text>
+
+  <!-- Mini board -->
+  <rect x="332" y="100" width="42" height="12" rx="3" fill="#21262d"/>
+  <text x="353" y="110" text-anchor="middle" font-size="8" fill="#8b949e">TODO</text>
+  <rect x="332" y="117" width="42" height="24" rx="4" fill="#1e2d40" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <rect x="337" y="122" width="22" height="3" rx="1.5" fill="#3b82f6" opacity="0.6"/>
+  <rect x="337" y="128" width="32" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="337" y="134" width="24" height="3" rx="1.5" fill="#30363d"/>
+
+  <rect x="382" y="100" width="46" height="12" rx="3" fill="#21262d"/>
+  <text x="405" y="110" text-anchor="middle" font-size="8" fill="#8b949e">IN PROG</text>
+  <rect x="382" y="117" width="46" height="24" rx="4" fill="#1e2d3a" stroke="rgba(234,179,8,0.2)" stroke-width="1"/>
+  <rect x="387" y="122" width="28" height="3" rx="1.5" fill="#eab308" opacity="0.6"/>
+  <rect x="387" y="128" width="36" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="387" y="134" width="20" height="3" rx="1.5" fill="#30363d"/>
+
+  <!-- ══════════════════════════════════════
+       NODE C — Backup 2
+  ══════════════════════════════════════ -->
+  <rect x="320" y="265" width="160" height="118" rx="10" fill="#161b22" stroke="#21262d" stroke-width="1.5"/>
+  <rect x="320" y="265" width="160" height="36" rx="10" fill="#1a2233"/>
+  <rect x="320" y="289" width="160" height="12" fill="#1a2233"/>
+  <circle cx="338" cy="283" r="5" fill="#8b949e"/>
+  <text x="350" y="287" font-size="11" font-weight="700" fill="#e6edf3">Node C</text>
+  <rect x="437" y="273" width="30" height="18" rx="9" fill="rgba(139,92,246,0.15)" stroke="rgba(139,92,246,0.4)" stroke-width="1"/>
+  <text x="452" y="285" text-anchor="middle" font-size="8" font-weight="700" fill="#a78bfa">BAK</text>
+
+  <!-- Mini board -->
+  <rect x="332" y="310" width="42" height="12" rx="3" fill="#21262d"/>
+  <text x="353" y="320" text-anchor="middle" font-size="8" fill="#8b949e">TODO</text>
+  <rect x="332" y="327" width="42" height="24" rx="4" fill="#1e2d40" stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+  <rect x="337" y="332" width="28" height="3" rx="1.5" fill="#3b82f6" opacity="0.6"/>
+  <rect x="337" y="338" width="32" height="3" rx="1.5" fill="#30363d"/>
+  <rect x="337" y="344" width="18" height="3" rx="1.5" fill="#30363d"/>
+
+  <rect x="382" y="310" width="46" height="12" rx="3" fill="#21262d"/>
+  <text x="405" y="320" text-anchor="middle" font-size="8" fill="#8b949e">DONE</text>
+  <rect x="382" y="327" width="46" height="24" rx="4" fill="#1a2e22" stroke="rgba(16,185,129,0.2)" stroke-width="1"/>
+  <rect x="387" y="332" width="24" height="3" rx="1.5" fill="#10b981" opacity="0.6"/>
+  <rect x="387" y="338" width="36" height="3" rx="1.5" fill="#30363d"/>
+  <circle cx="420" cy="345" r="5" fill="rgba(16,185,129,0.2)"/>
+  <polyline points="417,345 419,347 423,342" fill="none" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ══════════════════════════════════════
+       FAILOVER PANEL (right)
+  ══════════════════════════════════════ -->
+  <rect x="550" y="55" width="218" height="325" rx="10" fill="#161b22" stroke="#21262d" stroke-width="1.5"/>
+  <rect x="550" y="55" width="218" height="36" rx="10" fill="#1a1a2e"/>
+  <rect x="550" y="79" width="218" height="12" fill="#1a1a2e"/>
+  <text x="659" y="78" text-anchor="middle" font-size="11" font-weight="700" fill="#e6edf3">System Status</text>
+
+  <!-- State sync indicator -->
+  <rect x="566" y="102" width="186" height="48" rx="7" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="578" y="118" font-size="9" font-weight="700" fill="#8b949e" letter-spacing="1">STATE SYNC</text>
+  <rect x="578" y="124" width="160" height="6" rx="3" fill="#21262d"/>
+  <rect x="578" y="124" width="148" height="6" rx="3" fill="url(#syncgrad)"/>
+  <defs>
+    <linearGradient id="syncgrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+  </defs>
+  <text x="578" y="142" font-size="9" fill="#60a5fa">3 / 3 nodes in sync</text>
+
+  <!-- Failover section -->
+  <rect x="566" y="160" width="186" height="76" rx="7" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="578" y="176" font-size="9" font-weight="700" fill="#8b949e" letter-spacing="1">AUTO FAILOVER</text>
+  <!-- Timeline -->
+  <line x1="578" y1="195" x2="736" y2="195" stroke="#21262d" stroke-width="1.5"/>
+  <!-- Event dots -->
+  <circle cx="594" cy="195" r="5" fill="#10b981"/>
+  <text x="594" y="210" text-anchor="middle" font-size="7.5" fill="#8b949e">start</text>
+  <circle cx="644" cy="195" r="5" fill="#eab308"/>
+  <text x="644" y="210" text-anchor="middle" font-size="7.5" fill="#eab308">fail</text>
+  <line x1="644" y1="183" x2="644" y2="191" stroke="#eab308" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="644" y="181" text-anchor="middle" font-size="7" fill="#eab308">node down</text>
+  <circle cx="694" cy="195" r="5" fill="#3b82f6"/>
+  <text x="694" y="210" text-anchor="middle" font-size="7.5" fill="#3b82f6">promote</text>
+  <circle cx="726" cy="195" r="5" fill="#10b981"/>
+  <text x="726" y="210" text-anchor="middle" font-size="7.5" fill="#10b981">sync</text>
+  <!-- Line segment between fail and promote highlighted -->
+  <line x1="644" y1="195" x2="694" y2="195" stroke="#3b82f6" stroke-width="2"/>
+  <text x="669" y="188" text-anchor="middle" font-size="7" fill="#60a5fa">~120ms</text>
+
+  <!-- Latency chart -->
+  <rect x="566" y="248" width="186" height="80" rx="7" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <text x="578" y="264" font-size="9" font-weight="700" fill="#8b949e" letter-spacing="1">REPLICATION LATENCY</text>
+  <!-- Chart bars -->
+  <rect x="586" y="297" width="10" height="18" rx="2" fill="#3b82f6" opacity="0.7"/>
+  <rect x="601" y="291" width="10" height="24" rx="2" fill="#3b82f6" opacity="0.6"/>
+  <rect x="616" y="299" width="10" height="16" rx="2" fill="#3b82f6" opacity="0.7"/>
+  <rect x="631" y="293" width="10" height="22" rx="2" fill="#3b82f6" opacity="0.5"/>
+  <rect x="646" y="300" width="10" height="15" rx="2" fill="#eab308" opacity="0.8"/>
+  <rect x="661" y="288" width="10" height="27" rx="2" fill="#eab308" opacity="0.7"/>
+  <rect x="676" y="302" width="10" height="13" rx="2" fill="#3b82f6" opacity="0.7"/>
+  <rect x="691" y="295" width="10" height="20" rx="2" fill="#3b82f6" opacity="0.6"/>
+  <rect x="706" y="300" width="10" height="15" rx="2" fill="#3b82f6" opacity="0.8"/>
+  <line x1="578" y1="315" x2="724" y2="315" stroke="#21262d" stroke-width="1"/>
+  <text x="578" y="324" font-size="8" fill="#8b949e">avg 18ms</text>
+  <text x="724" y="324" text-anchor="end" font-size="8" fill="#10b981">✓ healthy</text>
+
+  <!-- Tech stack badges -->
+  <rect x="566" y="340" width="186" height="28" rx="7" fill="#0d1117" stroke="#21262d" stroke-width="1"/>
+  <rect x="574" y="348" width="38" height="12" rx="6" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="593" y="357" text-anchor="middle" font-size="8" fill="#60a5fa">C++</text>
+  <rect x="618" y="348" width="44" height="12" rx="6" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="640" y="357" text-anchor="middle" font-size="8" fill="#60a5fa">Node.js</text>
+  <rect x="668" y="348" width="36" height="12" rx="6" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="686" y="357" text-anchor="middle" font-size="8" fill="#60a5fa">React</text>
+  <rect x="710" y="348" width="36" height="12" rx="6" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="728" y="357" text-anchor="middle" font-size="8" fill="#60a5fa">WS</text>
+
+  <!-- ── BOTTOM LABEL ── -->
+  <text x="400" y="430" text-anchor="middle" font-size="10" fill="#30363d">CS 6650 · Northeastern University · Primary-Backup Replication · Automatic Failover · State Synchronization</text>
+</svg>
