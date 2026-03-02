@@ -102,8 +102,6 @@
             align-items: center;
         }
 
-        .hero-text {}
-
         .hero-badges {
             display: flex;
             gap: 0.6rem;
@@ -180,7 +178,6 @@
             transform: translateY(-1px);
         }
 
-        /* PROFILE PHOTO */
         .hero-photo {
             width: 220px;
             height: 220px;
@@ -286,11 +283,15 @@
             font-size: 0.97rem;
         }
 
-        /* PROJECTS */
+        /* PROJECTS — 3-col grid, last card centered when alone on bottom row */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.4rem;
+        }
+
+        .projects-grid .card:last-child:nth-child(3n-1) {
+            grid-column: 2;
         }
 
         .card {
@@ -445,7 +446,7 @@
             color: var(--accent2);
         }
 
-        /* ABOUT / SALES */
+        /* ABOUT */
         .about-grid {
             display: grid;
             grid-template-columns: 1.3fr 1fr;
@@ -540,6 +541,16 @@
             margin: 0;
         }
 
+        @media(max-width:900px) {
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .projects-grid .card:last-child:nth-child(3n-1) {
+                grid-column: auto;
+            }
+        }
+
         @media(max-width:768px) {
             .hero-inner {
                 grid-template-columns: 1fr;
@@ -560,6 +571,10 @@
             }
 
             .skills-cols {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -646,11 +661,12 @@
     <section id="projects">
         <div class="section-label">Portfolio</div>
         <h2 class="section-title">Recent Projects</h2>
-        <p class="section-subtitle">Spanning distributed systems, applied AI, and mobile — with a focus on real-world
-            engineering challenges.</p>
+        <p class="section-subtitle">Spanning distributed systems and applied AI — with a focus on real-world engineering
+            challenges.</p>
 
         <div class="projects-grid">
 
+            <!-- Distributed Kanban -->
             <div class="card">
                 <div class="card-img">
                     <div class="img-icon">🖼️</div>
@@ -680,6 +696,7 @@
                 </div>
             </div>
 
+            <!-- Otto PM -->
             <div class="card">
                 <div class="card-img">
                     <div class="img-icon">🖼️</div>
@@ -688,43 +705,13 @@
                 <div class="card-body">
                     <div class="card-tags">
                         <span class="tag tag-purple">LLMs</span>
-                        <span class="tag tag-purple">LangChain</span>
                         <span class="tag tag-purple">GCP</span>
                         <span class="tag tag-purple">Apache Airflow</span>
                         <span class="tag tag-blue">Full Stack</span>
                     </div>
                     <div class="card-title">Otto PM</div>
-                    <p class="card-desc">AI-powered product management tool built on LLMs and LangChain, with GCP
-                        infrastructure and Airflow-orchestrated data pipelines. Automates routine PM workflows
-                        end-to-end.</p>
-                    <div class="card-links">
-                        <a class="card-link" href="#">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
-                            </svg>
-                            GitHub
-                        </a>
-                        <a class="card-link" href="#">Live Demo ↗</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img">
-                    <div class="img-icon">🖼️</div>
-                    <div class="img-label">Image coming soon</div>
-                </div>
-                <div class="card-body">
-                    <div class="card-tags">
-                        <span class="tag tag-purple">VLM</span>
-                        <span class="tag tag-purple">Claude API</span>
-                        <span class="tag tag-blue">Mobile</span>
-                        <span class="tag tag-green">Computer Vision</span>
-                    </div>
-                    <div class="card-title">Indoor Navigation App</div>
-                    <p class="card-desc">Mobile app for navigating GPS-denied indoor spaces, powered by a Vision
-                        Language Model via the Claude API to interpret the environment and guide users in real time.</p>
+                    <p class="card-desc">AI-powered product management tool built on LLMs with GCP infrastructure and
+                        Airflow-orchestrated data pipelines. Automates routine PM workflows end-to-end.</p>
                     <div class="card-links">
                         <a class="card-link" href="#">
                             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
@@ -737,6 +724,7 @@
                 </div>
             </div>
 
+            <!-- CNN/RNN/LSTM — centered on bottom row -->
             <div class="card">
                 <div class="card-img">
                     <div class="img-icon">🖼️</div>
@@ -782,7 +770,6 @@
                 <div class="skills-group-title">🚀 Applied ML & AI</div>
                 <div class="chip-grid">
                     <div class="chip">LLMs</div>
-                    <div class="chip">LangChain</div>
                     <div class="chip">VLMs</div>
                     <div class="chip">Claude API</div>
                     <div class="chip">RAG Pipelines</div>
@@ -793,15 +780,16 @@
                 </div>
             </div>
             <div>
-                <div class="skills-group-title">📐 Theoretical & Core ML</div>
+                <div class="skills-group-title">📐 Theoretical ML</div>
                 <div class="chip-grid">
                     <div class="chip">PyTorch</div>
                     <div class="chip">TensorFlow</div>
                     <div class="chip">CNN · RNN · LSTM</div>
+                    <div class="chip">Transformers</div>
+                    <div class="chip">Generative AI</div>
                     <div class="chip">Scikit-learn</div>
                     <div class="chip">NumPy · Pandas</div>
                     <div class="chip">Deep Learning</div>
-                    <div class="chip">ML Theory</div>
                 </div>
             </div>
             <div>
@@ -839,8 +827,8 @@
             <div class="about-text">
                 <div class="section-label">Background</div>
                 <h2 class="section-title">Technical depth meets commercial instinct</h2>
-                <p>I started my career selling enterprise AI and video platform software at Darktrace and Panopto, where
-                    I learned that the best technical conversations happen when you truly understand what's under the
+                <p>I started my career selling AI-Powered Enterprise SaaS solutions at Darktrace and Panopto, where I
+                    learned that the best technical conversations happen when you truly understand what's under the
                     hood.</p>
                 <p>That conviction led me to Northeastern's MS CS program, where I've earned a 4.0 GPA studying machine
                     learning, deep learning, and distributed systems — and started building with the tools I used to
