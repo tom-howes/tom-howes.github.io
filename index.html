@@ -2,477 +2,936 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tom Howes - Software Engineer Portfolio">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tom Howes | Sales Engineer & ML Engineer</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface2: #21262d;
+            --accent: #3b82f6;
+            --accent2: #60a5fa;
+            --text: #e6edf3;
+            --muted: #8b949e;
+            --border: #30363d;
+            --radius: 12px;
+        }
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
-    <title>Portfolio</title>
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2.5rem;
+            background: rgba(13, 17, 23, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--accent2);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {}
+
+        .hero-badges {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-badge {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent2);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            padding: 0.28rem 0.8rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            max-width: 520px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent2);
+            transform: translateY(-1px);
+        }
+
+        /* PROFILE PHOTO */
+        .hero-photo {
+            width: 220px;
+            height: 220px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 2px dashed var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-photo::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 40%, rgba(59, 130, 246, 0.08), transparent 70%);
+        }
+
+        .photo-icon {
+            font-size: 2.2rem;
+            opacity: 0.3;
+        }
+
+        .photo-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        /* VALUE STRIP */
+        .value-strip {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .value-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .value-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .value-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .value-desc {
+            font-size: 0.83rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3.5vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 580px;
+            margin-bottom: 2.8rem;
+            font-size: 0.97rem;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform .25s, border-color .25s, box-shadow .25s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 8px 28px rgba(59, 130, 246, 0.08);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 170px;
+            background: var(--surface2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.4rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.07) 0%, transparent 60%);
+        }
+
+        .img-icon {
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .img-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            letter-spacing: 0.06em;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            padding: 1.3rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+            letter-spacing: 0.04em;
+        }
+
+        .tag-blue {
+            background: rgba(59, 130, 246, 0.12);
+            color: var(--accent2);
+        }
+
+        .tag-purple {
+            background: rgba(139, 92, 246, 0.12);
+            color: #a78bfa;
+        }
+
+        .tag-green {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-desc {
+            color: var(--muted);
+            font-size: 0.87rem;
+            line-height: 1.6;
+        }
+
+        .card-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .card-link {
+            font-size: 0.81rem;
+            font-weight: 600;
+            color: var(--accent2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: opacity .2s;
+        }
+
+        .card-link:hover {
+            opacity: 0.7;
+        }
+
+        /* SKILLS */
+        .skills-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .skills-group-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.9rem;
+        }
+
+        .chip-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: border-color .2s, color .2s;
+        }
+
+        .chip:hover {
+            border-color: var(--accent);
+            color: var(--accent2);
+        }
+
+        /* ABOUT / SALES */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 3.5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 1rem;
+            font-size: 0.97rem;
+        }
+
+        .sales-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .highlight-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.1rem 1.3rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .hl-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent2);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .hl-label {
+            font-size: 0.83rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+
+        /* CONTACT */
+        #contact {
+            text-align: center;
+        }
+
+        #contact .section-subtitle {
+            margin: 0 auto 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.3rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: var(--surface);
+            transition: all .2s;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            color: var(--accent2);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 2rem;
+            color: var(--muted);
+            font-size: 0.83rem;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0;
+        }
+
+        @media(max-width:768px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+            }
+
+            .value-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-cols {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 1.2rem;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <nav class="sticky-nav">
-        <div class="left">
-            <a href="/" class="logo">Tom Howes</a>
-        </div>
 
-        <div class="right">
-            <a href="https://github.com/tom-howes" target="_blank" rel="noopener noreferrer" class="nav-link">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-
-            <a href="https://www.linkedin.com/in/tom-howes-1b1322164/" target="_blank" rel="noopener noreferrer"
-                class="nav-link">
-                <i class="fab fa-linkedin-in"></i>
-                <span>LinkedIn</span>
-            </a>
-
-            <a href="mailto:thomas.howes01@gmail.com" target="_blank" rel="noopener noreferrer" class="nav-link">
-                <i class="fas fa-envelope"></i>
-                <span>Email</span>
-            </a>
-
-            <a href="#contact" class="nav-cta">
-                <span>Let's Talk</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <button class="mobile-menu-btn">
-            <i class="fas fa-bars"></i>
-        </button>
+    <nav>
+        <a class="nav-logo" href="#">Tom Howes</a>
+        <ul class="nav-links">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">Background</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="hero-name">Tom Howes</span>
-                <span class="hero-tagline">Software Engineer</span>
-            </h1>
-
-            <p class="hero-description">
-                Backend Software Engineer completing a Master's in Computer Science at Northeastern University.
-                Specializing
-                in scalable system architecture and server-side development. Proficient in Python, Java, and C/C++ with
-                strong expertise in algorithms, data structures, and object-oriented design. My unique background
-                includes sales and management experience, providing valuable insight into
-                customer needs and
-                business requirements that drives more effective technical solutions. This cross-functional perspective
-                enables me to build backend systems that not only meet technical specifications but also align with user
-                expectations and business objectives.
-            </p>
-
-            <div class="hero-links">
-                <a href="#skills" class="hero-link">
-                    <i class="fas fa-code"></i>
-                    <span>Explore Skills</span>
-                </a>
-                <a href="#projects" class="hero-link">
-                    <i class="fas fa-laptop-code"></i>
-                    <span>View Projects</span>
-                </a>
-                <a href="#contact" class="hero-link primary">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Contact Me</span>
-                </a>
-            </div>
-        </div>
-
-        <div class="hero-image">
-            <div class="image-wrapper">
-                <img src="images/headshot-blue.png" alt="Tom Howes" class="profile-photo">
-                <div class="image-border"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-        <div class="section-header">
-            <h2 class="section-title">Technical Skills</h2>
-            <p class="section-subtitle">Technologies I work with</p>
-        </div>
-
-        <div class="skills-grid">
-            <!-- Programming Languages -->
-            <div class="skill-category">
-                <h3 class="category-title">
-                    <i class="fas fa-code"></i>
-                    Languages
-                </h3>
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/icons8-python-96.png" alt="Python">
-                        </div>
-                        <span class="skill-name">Python</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/icons8-java-96.png" alt="Java">
-                        </div>
-                        <span class="skill-name">Java</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/icons8-c-96.png" alt="C">
-                        </div>
-                        <span class="skill-name">C/C++</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/icons8-html5-96.png" alt="HTML">
-                        </div>
-                        <span class="skill-name">HTML/CSS</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 75%;"></div>
-                        </div>
-                    </div>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badges">
+                    <span class="hero-badge">Sales Engineering</span>
+                    <span class="hero-badge">Machine Learning</span>
+                    <span class="hero-badge">MS CS · Northeastern · 4.0</span>
+                </div>
+                <h1>Tom <span>Howes</span></h1>
+                <p>I bridge the gap between complex ML systems and the people who use them — combining a graduate CS
+                    education with three years of enterprise SaaS sales at companies like Darktrace and Panopto.</p>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#projects">View Projects</a>
+                    <a class="btn btn-outline" href="#contact">Get in Touch</a>
                 </div>
             </div>
+            <div class="hero-photo">
+                <div class="photo-icon">📷</div>
+                <div class="photo-label">Photo coming soon</div>
+            </div>
+        </div>
+    </div>
 
-            <!-- Tools & Frameworks -->
-            <div class="skill-category">
-                <h3 class="category-title">
-                    <i class="fas fa-tools"></i>
-                    Frameworks & Libraries
-                </h3>
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/Pytorch_logo.png" alt="PyTorch">
-                        </div>
-                        <span class="skill-name">PyTorch</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/Scikit-learn-Logo.jpg" alt="Scikit-Learn">
-                        </div>
-                        <span class="skill-name">Scikit-Learn</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/numpylogoicon.png" alt="Pandas">
-                        </div>
-                        <span class="skill-name">Pandas/NumPy</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/flask-horizontal.webp" alt="Flask">
-                        </div>
-                        <span class="skill-name">Flask</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 75%;"></div>
-                        </div>
-                    </div>
+    <!-- VALUE STRIP -->
+    <div class="value-strip">
+        <div class="value-inner">
+            <div class="value-item">
+                <div class="value-icon">🧠</div>
+                <div>
+                    <div class="value-title">Applied ML & LLMs</div>
+                    <div class="value-desc">Hands-on experience building with LLMs, VLMs, and the Claude API — from
+                        agentic pipelines to multimodal applications.</div>
                 </div>
             </div>
-
-            <!-- Other Skills -->
-            <div class="skill-category">
-                <h3 class="category-title">
-                    <i class="fas fa-laptop-code"></i>
-                    Development Tools
-                </h3>
-                <div class="skills-list">
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/linux-cropped.png" alt="Linux">
-                        </div>
-                        <span class="skill-name">Linux</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/github-mark.svg" alt="Git">
-                        </div>
-                        <span class="skill-name">Git</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/docker.svg" alt="Docker">
-                        </div>
-                        <span class="skill-name">Docker</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <img src="images/vimlogo.svg" alt="Vim">
-                        </div>
-                        <span class="skill-name">Vim/Tmux</span>
-                        <div class="skill-level">
-                            <div class="level-bar" style="width: 90%;"></div>
-                        </div>
-                    </div>
+            <div class="value-item">
+                <div class="value-icon">⚙️</div>
+                <div>
+                    <div class="value-title">Distributed Systems</div>
+                    <div class="value-desc">Built fault-tolerant, real-time collaborative systems in C++ and Node.js —
+                        comfortable in deep technical architecture conversations.</div>
+                </div>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <div>
+                    <div class="value-title">Enterprise Sales</div>
+                    <div class="value-desc">Closed complex £50k+ SaaS deals and led technical RFP/RFI responses — up to
+                        185% quota attainment at Darktrace and Panopto.</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-        <div class="section-header">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">A selection of my recent work</p>
-        </div>
+    <hr class="divider" />
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">Recent Projects</h2>
+        <p class="section-subtitle">Spanning distributed systems, applied AI, and mobile — with a focus on real-world
+            engineering challenges.</p>
+
         <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-image-container">
-                    <img src="images/Robot.jpg" alt="Robot Factory" class="project-image">
-                    <div class="project-overlay">
-                        <a href="https://github.com/tom-howes/Distributed-Robot-Factory-System" target="_blank"
-                            class="project-link">
-                            <i class="fab fa-github"></i>
-                            View Code
-                        </a>
-                    </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <div class="img-icon">🖼️</div>
+                    <div class="img-label">Image coming soon</div>
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">Robot Factory</h3>
-                    <p class="project-description">
-                        A high-performance client-server application demonstrating distributed systems concepts
-                        including multi-threaded request handling, thread pool architecture, and remote procedure calls
-                        (RPC) over TCP sockets.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">C++11</span>
-                        <span class="tech-tag">TCP/IP Sockets API</span>
-                        <span class="tech-tag">Linux</span>
+                <div class="card-body">
+                    <div class="card-tags">
+                        <span class="tag tag-blue">C++</span>
+                        <span class="tag tag-blue">Node.js</span>
+                        <span class="tag tag-blue">React</span>
+                        <span class="tag tag-blue">Socket.io</span>
+                        <span class="tag tag-green">Distributed Systems</span>
+                    </div>
+                    <div class="card-title">Distributed Kanban Board</div>
+                    <p class="card-desc">Real-time collaborative platform built for CS 6650. Features primary-backup
+                        replication, automatic failover, and state synchronization across clients.</p>
+                    <div class="card-links">
+                        <a class="card-link" href="https://github.com/tom-howes/CS6650_Final_Project" target="_blank"
+                            rel="noopener">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                            </svg>
+                            GitHub
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-image-container">
-                    <img src="images/flappy-bird.png" alt="Flappy Bird" class="project-image">
-                    <div class="project-overlay">
-                        <a href="https://github.com/tom-howes/flappy-bird/" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i>
-                            View Code
-                        </a>
-                    </div>
+            <div class="card">
+                <div class="card-img">
+                    <div class="img-icon">🖼️</div>
+                    <div class="img-label">Image coming soon</div>
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">Flappy Bird: Tom's Edition</h3>
-                    <p class="project-description">
-                        Recreated the classic Flappy Bird game with additional features using Python's PyGame module,
-                        implementing collision detection and score tracking.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PyGame</span>
-                        <span class="tech-tag">Web Assembly</span>
+                <div class="card-body">
+                    <div class="card-tags">
+                        <span class="tag tag-purple">LLMs</span>
+                        <span class="tag tag-purple">LangChain</span>
+                        <span class="tag tag-purple">GCP</span>
+                        <span class="tag tag-purple">Apache Airflow</span>
+                        <span class="tag tag-blue">Full Stack</span>
+                    </div>
+                    <div class="card-title">Otto PM</div>
+                    <p class="card-desc">AI-powered product management tool built on LLMs and LangChain, with GCP
+                        infrastructure and Airflow-orchestrated data pipelines. Automates routine PM workflows
+                        end-to-end.</p>
+                    <div class="card-links">
+                        <a class="card-link" href="#">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a class="card-link" href="#">Live Demo ↗</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-image-container">
-                    <img src="images/java-game.png" alt="Text Adventure" class="project-image">
-                    <div class="project-overlay">
-                        <a href="https://github.com/RyanDunnNEU/CS5004-HW9" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i>
-                            View Code
+            <div class="card">
+                <div class="card-img">
+                    <div class="img-icon">🖼️</div>
+                    <div class="img-label">Image coming soon</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-tags">
+                        <span class="tag tag-purple">VLM</span>
+                        <span class="tag tag-purple">Claude API</span>
+                        <span class="tag tag-blue">Mobile</span>
+                        <span class="tag tag-green">Computer Vision</span>
+                    </div>
+                    <div class="card-title">Indoor Navigation App</div>
+                    <p class="card-desc">Mobile app for navigating GPS-denied indoor spaces, powered by a Vision
+                        Language Model via the Claude API to interpret the environment and guide users in real time.</p>
+                    <div class="card-links">
+                        <a class="card-link" href="#">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                            </svg>
+                            GitHub
                         </a>
                     </div>
                 </div>
-                <div class="project-content">
-                    <h3 class="project-title">Text-Based Adventure Game</h3>
-                    <p class="project-description">
-                        Designed an interactive text adventure game with Java Swing GUI, implementing MVC architecture
-                        and JSON for game state persistence.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">JSwing</span>
-                        <span class="tech-tag">MVC</span>
-                        <span class="tech-tag">JSON</span>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <div class="img-icon">🖼️</div>
+                    <div class="img-label">Image coming soon</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-tags">
+                        <span class="tag tag-purple">PyTorch</span>
+                        <span class="tag tag-purple">CNN</span>
+                        <span class="tag tag-purple">RNN · LSTM</span>
+                        <span class="tag tag-blue">Python</span>
+                    </div>
+                    <div class="card-title">CNN, RNN & LSTM Architectures</div>
+                    <p class="card-desc">Implemented LeNet-style CNNs for image classification and RNN/LSTM
+                        architectures for sequence-to-sequence translation in PyTorch — core deep learning building
+                        blocks from scratch.</p>
+                    <div class="card-links">
+                        <a class="card-link" href="https://github.com/tom-howes/CNN-LeNet-RNN-and-LSTM" target="_blank"
+                            rel="noopener">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                            </svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-label">Skills</div>
+        <h2 class="section-title">Technical Toolkit</h2>
+        <p class="section-subtitle">Applied ML experience with modern tooling, grounded in CS fundamentals.</p>
+
+        <div class="skills-cols">
+            <div>
+                <div class="skills-group-title">🚀 Applied ML & AI</div>
+                <div class="chip-grid">
+                    <div class="chip">LLMs</div>
+                    <div class="chip">LangChain</div>
+                    <div class="chip">VLMs</div>
+                    <div class="chip">Claude API</div>
+                    <div class="chip">RAG Pipelines</div>
+                    <div class="chip">Prompt Engineering</div>
+                    <div class="chip">GCP</div>
+                    <div class="chip">Apache Airflow</div>
+                    <div class="chip">MLOps</div>
+                </div>
+            </div>
+            <div>
+                <div class="skills-group-title">📐 Theoretical & Core ML</div>
+                <div class="chip-grid">
+                    <div class="chip">PyTorch</div>
+                    <div class="chip">TensorFlow</div>
+                    <div class="chip">CNN · RNN · LSTM</div>
+                    <div class="chip">Scikit-learn</div>
+                    <div class="chip">NumPy · Pandas</div>
+                    <div class="chip">Deep Learning</div>
+                    <div class="chip">ML Theory</div>
+                </div>
+            </div>
+            <div>
+                <div class="skills-group-title">⚙️ Engineering</div>
+                <div class="chip-grid">
+                    <div class="chip">Python</div>
+                    <div class="chip">Java</div>
+                    <div class="chip">C / C++</div>
+                    <div class="chip">JavaScript</div>
+                    <div class="chip">AWS · Docker</div>
+                    <div class="chip">PostgreSQL · Redis</div>
+                    <div class="chip">REST APIs</div>
+                    <div class="chip">Git · Linux</div>
+                </div>
+            </div>
+            <div>
+                <div class="skills-group-title">🤝 Sales Engineering</div>
+                <div class="chip-grid">
+                    <div class="chip">Technical Discovery</div>
+                    <div class="chip">RFP / RFI Responses</div>
+                    <div class="chip">Enterprise Sales Cycles</div>
+                    <div class="chip">Salesforce</div>
+                    <div class="chip">Outreach · ZoomInfo</div>
+                    <div class="chip">Value-Based Selling</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-text">
+                <div class="section-label">Background</div>
+                <h2 class="section-title">Technical depth meets commercial instinct</h2>
+                <p>I started my career selling enterprise AI and video platform software at Darktrace and Panopto, where
+                    I learned that the best technical conversations happen when you truly understand what's under the
+                    hood.</p>
+                <p>That conviction led me to Northeastern's MS CS program, where I've earned a 4.0 GPA studying machine
+                    learning, deep learning, and distributed systems — and started building with the tools I used to
+                    sell.</p>
+                <p>I'm looking for roles where both sides of that experience matter: Sales Engineering, or ML
+                    Engineering in a product or customer-facing context.</p>
+                <a class="btn btn-outline" href="#contact" style="display:inline-block;margin-top:0.5rem;">Get in
+                    Touch</a>
+            </div>
+            <div>
+                <div class="sales-highlights">
+                    <div class="highlight-card">
+                        <div class="hl-num">185%</div>
+                        <div>
+                            <div style="font-weight:700;font-size:0.9rem;">Peak Quota Attainment</div>
+                            <div class="hl-label">Account Executive · Panopto</div>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="hl-num">$3M+</div>
+                        <div>
+                            <div style="font-weight:700;font-size:0.9rem;">Pipeline Generated</div>
+                            <div class="hl-label">Top global SDR · Panopto</div>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="hl-num">4.0</div>
+                        <div>
+                            <div style="font-weight:700;font-size:0.9rem;">GPA · MS Computer Science</div>
+                            <div class="hl-label">Northeastern University</div>
+                        </div>
+                    </div>
+                    <div class="highlight-card">
+                        <div class="hl-num">3 yrs</div>
+                        <div>
+                            <div style="font-weight:700;font-size:0.9rem;">Enterprise SaaS Sales</div>
+                            <div class="hl-label">Darktrace · Panopto</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="section-footer">
-            <a href="https://github.com/tom-howes" target="_blank" class="github-cta">
-                <i class="fab fa-github"></i>
-                View more on GitHub
+    <hr class="divider" />
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-label">Let's Connect</div>
+        <h2 class="section-title">Open to Opportunities</h2>
+        <p class="section-subtitle">Actively exploring Sales Engineering and ML Engineering roles. Always happy to chat
+            about the intersection of technical depth and commercial impact.</p>
+        <div class="contact-links">
+            <a class="contact-link" href="mailto:thomas.howes01@gmail.com">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                Email
+            </a>
+            <a class="contact-link" href="https://github.com/tom-howes" target="_blank" rel="noopener">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12" />
+                </svg>
+                GitHub
+            </a>
+            <a class="contact-link" href="https://linkedin.com/in/tom-howes" target="_blank" rel="noopener">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                </svg>
+                LinkedIn
+            </a>
+            <a class="contact-link" href="resume.pdf" target="_blank">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                Resume
             </a>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-header">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="section-subtitle">Let's build something great together</p>
-        </div>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>Email</h3>
-                        <a href="mailto:thomas.howes01@gmail.com">thomas.howes01@gmail.com</a>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fab fa-linkedin-in"></i>
-                    <div>
-                        <h3>LinkedIn</h3>
-                        <a href="https://www.linkedin.com/in/tom-howes-1b1322164/"
-                            target="_blank">linkedin.com/in/tom-howes</a>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fab fa-github"></i>
-                    <div>
-                        <h3>GitHub</h3>
-                        <a href="https://github.com/tom-howes" target="_blank">github.com/tom-howes</a>
-                    </div>
-                </div>
-            </div>
-            <form action="https://formcarry.com/s/BpLfAipwT8T" method="POST" class="contact-form" id="contactForm"
-                enctype="multipart/form-data">
-                <div class="form-group">
-                    <input type="text" name="name" required>
-                    <label for="name">Your Name</label>
-                </div>
-
-                <div class="form-group">
-                    <input type="email" name="email" required>
-                    <label for="email">Your Email</label>
-                </div>
-
-                <div class="form-group">
-                    <textarea name="message" rows="5" required></textarea>
-                    <label for="message">Your Message</label>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    <span>Send Message</span>
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <a href="/">Tom Howes</a>
-                <p>Software Engineer</p>
-            </div>
-
-            <div class="footer-links">
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div class="footer-social">
-                <a href="https://github.com/tom-howes" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/tom-howes-1b1322164/" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="mailto:thomas.howes01@gmail.com" target="_blank">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> Tom Howes. All rights reserved.</p>
-        </div>
+    <footer>
+        <p>© 2026 Tom Howes · Boston, MA</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button onclick="topFunction()" id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Scripts -->
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        // Back to top button visibility
-        window.addEventListener('scroll', function () {
-            const backToTop = document.querySelector('.back-to-top');
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('show');
-            } else {
-                backToTop.classList.remove('show');
-            }
-        });
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            // For modern browsers
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-
-            // For older browsers
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
 </body>
 
 </html>
