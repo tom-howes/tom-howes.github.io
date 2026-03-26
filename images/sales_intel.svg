@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg" style="background:#21262d;">
+  <!-- Background grid -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#30363d" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:0.4"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#161b22;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0d1117;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="170" fill="#21262d"/>
+  <rect width="400" height="170" fill="url(#grid)"/>
+
+  <!-- Glow -->
+  <ellipse cx="200" cy="85" rx="140" ry="60" fill="#3b82f6" opacity="0.06"/>
+
+  <!-- Left: URL input box -->
+  <rect x="24" y="32" width="140" height="28" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+  <text x="34" y="50" font-family="monospace" font-size="9" fill="#8b949e">prospect url</text>
+  <text x="34" y="62" font-family="monospace" font-size="8" fill="#3b82f6" dy="-6">relyance.ai</text>
+
+  <!-- Stakeholder pills -->
+  <rect x="24" y="70" width="44" height="16" rx="8" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+  <text x="46" y="81" font-family="sans-serif" font-size="7" fill="#60a5fa" text-anchor="middle">CISO</text>
+
+  <rect x="73" y="70" width="56" height="16" rx="8" fill="rgba(59,130,246,0.08)" stroke="#30363d" stroke-width="1"/>
+  <text x="101" y="81" font-family="sans-serif" font-size="7" fill="#8b949e" text-anchor="middle">VP ENG</text>
+
+  <rect x="134" y="70" width="30" height="16" rx="8" fill="rgba(59,130,246,0.08)" stroke="#30363d" stroke-width="1"/>
+  <text x="149" y="81" font-family="sans-serif" font-size="7" fill="#8b949e" text-anchor="middle">CFO</text>
+
+  <!-- Arrow -->
+  <line x1="175" y1="85" x2="210" y2="85" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="210,81 218,85 210,89" fill="#3b82f6"/>
+
+  <!-- Center: LLM node -->
+  <circle cx="230" cy="85" r="22" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="230" y="82" font-family="sans-serif" font-size="7" fill="#60a5fa" text-anchor="middle" font-weight="600">CLAUDE</text>
+  <text x="230" y="92" font-family="sans-serif" font-size="6" fill="#8b949e" text-anchor="middle">API</text>
+
+  <!-- Arrow right -->
+  <line x1="252" y1="85" x2="272" y2="85" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <polygon points="272,81 280,85 272,89" fill="#3b82f6"/>
+
+  <!-- Right: Brief output card -->
+  <rect x="282" y="24" width="94" height="122" rx="6" fill="url(#cardGrad)" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Brief section lines -->
+  <text x="292" y="40" font-family="sans-serif" font-size="6" fill="#3b82f6" font-weight="700">OVERVIEW</text>
+  <rect x="292" y="43" width="64" height="3" rx="1" fill="#30363d"/>
+  <rect x="292" y="48" width="50" height="3" rx="1" fill="#30363d"/>
+
+  <text x="292" y="62" font-family="sans-serif" font-size="6" fill="#3b82f6" font-weight="700">TECH STACK</text>
+  <rect x="292" y="65" width="55" height="3" rx="1" fill="#30363d"/>
+  <rect x="292" y="70" width="44" height="3" rx="1" fill="#30363d"/>
+
+  <text x="292" y="84" font-family="sans-serif" font-size="6" fill="#3b82f6" font-weight="700">PAIN POINTS</text>
+  <rect x="292" y="87" width="60" height="3" rx="1" fill="#30363d"/>
+  <rect x="292" y="92" width="48" height="3" rx="1" fill="#30363d"/>
+
+  <text x="292" y="106" font-family="sans-serif" font-size="6" fill="#3b82f6" font-weight="700">QUESTIONS</text>
+  <rect x="292" y="109" width="56" height="3" rx="1" fill="#30363d"/>
+  <rect x="292" y="114" width="40" height="3" rx="1" fill="#30363d"/>
+
+  <text x="292" y="128" font-family="sans-serif" font-size="6" fill="#3b82f6" font-weight="700">OBJECTIONS</text>
+  <rect x="292" y="131" width="62" height="3" rx="1" fill="#30363d"/>
+  <rect x="292" y="136" width="46" height="3" rx="1" fill="#30363d"/>
+
+  <!-- Bottom label -->
+  <text x="200" y="158" font-family="sans-serif" font-size="8" fill="#8b949e" text-anchor="middle" letter-spacing="0.08em">SALES INTELLIGENCE TOOL</text>
+</svg>
